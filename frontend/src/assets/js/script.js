@@ -231,168 +231,182 @@ CSS TABLE OF CONTENTS
 	// Blog slider area end here ***
 
 	// Get swiper slider area start here ***
-	var swiper = new Swiper(".get__slider", {
-		loop: "true",
-		spaceBetween: 10,
-		speed: 300,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false,
-		},
-		navigation: {
-			nextEl: ".get-now__arry-right",
-			prevEl: ".get-now__arry-left",
-		},
-	});
-	// Get swiper slider area end here ***
 
-	// Isotope area start here ***
-	var $grid = $(".filter__items").isotope({});
-	// click here
-	$(".filter__list").on("click", "li", function () {
-		var filterValue = $(this).attr("data-filter");
-		$grid.isotope({ filter: filterValue });
-	});
-	// change is-checked class on buttons
-	$(".filter__list").each(function (i, buttonGroup) {
-		var $buttonGroup = $(buttonGroup);
-		$buttonGroup.on("click", "li", function () {
-			$buttonGroup.find(".active").removeClass("active");
-			$(this).addClass("active");
-		});
-	});
-	// Isotope area end here ***
 
-	// Background image date area start here ***
-	$("[data-background").each(function () {
-		$(this).css(
-			"background-image",
-			"url( " + $(this).attr("data-background") + "  )"
-		);
-	});
-	// Background image date area end here ***
 
-	// Video popup area start here ***
-	$(".video-popup").magnificPopup({
-		type: "iframe",
-		iframe: {
-			markup:
-				'<div class="mfp-iframe-scaler">' +
-				'<div class="mfp-close"></div>' +
-				'<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
-				"</div>",
 
-			patterns: {
-				youtube: {
-					index: "youtube.com/",
 
-					id: "v=",
 
-					src: "https://www.youtube.com/embed/%id%?autoplay=1",
-				},
-				vimeo: {
-					index: "vimeo.com/",
-					id: "/",
-					src: "//player.vimeo.com/video/%id%?autoplay=1",
-				},
-				gmaps: {
-					index: "//maps.google.",
-					src: "%id%&output=embed",
-				},
-			},
 
-			srcAction: "iframe_src",
-		},
-	});
-	// Video popup area end here ***
 
-	// Map popup area start here ***
-	$(".map-popup").magnificPopup({
-		disableOn: 700,
-		type: "iframe",
-		mainClass: "mfp-fade",
-		removalDelay: 160,
-		preloader: false,
-		fixedContentPos: false,
-	});
-	// Map popup area end here ***
 
-	// Counter up area start here ***
-	$(".count").counterUp({
-		delay: 20,
-		time: 3000,
-	});
-	// Counter up area end here ***
 
-	// Countdown area start here ***
-	var targetDate = new Date("2023-12-01 00:00:00").getTime();
-	// fix you date here
-	var countdownInterval = setInterval(function () {
-		var currentDate = new Date().getTime();
-		var remainingTime = targetDate - currentDate;
 
-		var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-		var hours = Math.floor(
-			(remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-		);
-		var minutes = Math.floor(
-			(remainingTime % (1000 * 60 * 60)) / (1000 * 60)
-		);
-		var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-		// Pad single-digit values with leading zeros
-		$("#day").text(days.toString().padStart(2, "0"));
-		$("#hour").text(hours.toString().padStart(2, "0"));
-		$("#min").text(minutes.toString().padStart(2, "0"));
-		$("#sec").text(seconds.toString().padStart(2, "0"));
 
-		if (remainingTime <= 0) {
-			clearInterval(countdownInterval);
-			// You can add a message or perform any action when the countdown timer reaches zero
-		}
-	}, 1000);
-	// Countdown area end here ***
 
-	// Shop single swiper slider area start here ***
-	var swiper = new Swiper(".shop-slider-thumb", {
-		loop: true,
-		spaceBetween: 10,
-		slidesPerView: 4,
-		freeMode: true,
-		watchSlidesProgress: true,
-		navigation: {
-			nextEl: ".right-arry",
-			prevEl: ".left-arry",
-		},
-	});
-	var swiper2 = new Swiper(".shop-single-slide", {
-		loop: "true",
-		spaceBetween: 20,
-		speed: 300,
-		grabCursor: true,
-		navigation: {
-			nextEl: ".right-arry",
-			prevEl: ".left-arry",
-		},
-		thumbs: {
-			swiper: swiper,
-		},
-	});
-	// Shop single swiper slider area end here ***
+	// var swiper = new Swiper(".get__slider", {
+	// 	loop: "true",
+	// 	spaceBetween: 10,
+	// 	speed: 300,
+	// 	autoplay: {
+	// 		delay: 4000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	navigation: {
+	// 		nextEl: ".get-now__arry-right",
+	// 		prevEl: ".get-now__arry-left",
+	// 	},
+	// });
+	// // Get swiper slider area end here ***
 
-	// Shop count js area start here ***
-	$(".quantity").on("click", ".plus", function (e) {
-		let $input = $(this).prev("input.qty");
-		let val = parseInt($input.val(), 10); // Specify base 10
-		$input.val(val + 1).change();
-	});
-	$(".quantity").on("click", ".minus", function (e) {
-		let $input = $(this).next("input.qty");
-		var val = parseInt($input.val(), 10); // Specify base 10
-		if (val > 0) {
-			$input.val(val - 1).change();
-		}
-	});
+	// // Isotope area start here ***
+	// var $grid = $(".filter__items").isotope({});
+	// // click here
+	// $(".filter__list").on("click", "li", function () {
+	// 	var filterValue = $(this).attr("data-filter");
+	// 	$grid.isotope({ filter: filterValue });
+	// });
+	// // change is-checked class on buttons
+	// $(".filter__list").each(function (i, buttonGroup) {
+	// 	var $buttonGroup = $(buttonGroup);
+	// 	$buttonGroup.on("click", "li", function () {
+	// 		$buttonGroup.find(".active").removeClass("active");
+	// 		$(this).addClass("active");
+	// 	});
+	// });
+	// // Isotope area end here ***
+
+	// // Background image date area start here ***
+	// $("[data-background").each(function () {
+	// 	$(this).css(
+	// 		"background-image",
+	// 		"url( " + $(this).attr("data-background") + "  )"
+	// 	);
+	// });
+	// // Background image date area end here ***
+
+	// // Video popup area start here ***
+	// $(".video-popup").magnificPopup({
+	// 	type: "iframe",
+	// 	iframe: {
+	// 		markup:
+	// 			'<div class="mfp-iframe-scaler">' +
+	// 			'<div class="mfp-close"></div>' +
+	// 			'<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+	// 			"</div>",
+
+	// 		patterns: {
+	// 			youtube: {
+	// 				index: "youtube.com/",
+
+	// 				id: "v=",
+
+	// 				src: "https://www.youtube.com/embed/%id%?autoplay=1",
+	// 			},
+	// 			vimeo: {
+	// 				index: "vimeo.com/",
+	// 				id: "/",
+	// 				src: "//player.vimeo.com/video/%id%?autoplay=1",
+	// 			},
+	// 			gmaps: {
+	// 				index: "//maps.google.",
+	// 				src: "%id%&output=embed",
+	// 			},
+	// 		},
+
+	// 		srcAction: "iframe_src",
+	// 	},
+	// });
+	// // Video popup area end here ***
+
+	// // Map popup area start here ***
+	// $(".map-popup").magnificPopup({
+	// 	disableOn: 700,
+	// 	type: "iframe",
+	// 	mainClass: "mfp-fade",
+	// 	removalDelay: 160,
+	// 	preloader: false,
+	// 	fixedContentPos: false,
+	// });
+	// // Map popup area end here ***
+
+	// // Counter up area start here ***
+	// $(".count").counterUp({
+	// 	delay: 20,
+	// 	time: 3000,
+	// });
+	// // Counter up area end here ***
+
+	// // Countdown area start here ***
+	// var targetDate = new Date("2023-12-01 00:00:00").getTime();
+	// // fix you date here
+	// var countdownInterval = setInterval(function () {
+	// 	var currentDate = new Date().getTime();
+	// 	var remainingTime = targetDate - currentDate;
+
+	// 	var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+	// 	var hours = Math.floor(
+	// 		(remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+	// 	);
+	// 	var minutes = Math.floor(
+	// 		(remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+	// 	);
+	// 	var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+	// 	// Pad single-digit values with leading zeros
+	// 	$("#day").text(days.toString().padStart(2, "0"));
+	// 	$("#hour").text(hours.toString().padStart(2, "0"));
+	// 	$("#min").text(minutes.toString().padStart(2, "0"));
+	// 	$("#sec").text(seconds.toString().padStart(2, "0"));
+
+	// 	if (remainingTime <= 0) {
+	// 		clearInterval(countdownInterval);
+	// 		// You can add a message or perform any action when the countdown timer reaches zero
+	// 	}
+	// }, 1000);
+	// // Countdown area end here ***
+
+	// // Shop single swiper slider area start here ***
+	// var swiper = new Swiper(".shop-slider-thumb", {
+	// 	loop: true,
+	// 	spaceBetween: 10,
+	// 	slidesPerView: 4,
+	// 	freeMode: true,
+	// 	watchSlidesProgress: true,
+	// 	navigation: {
+	// 		nextEl: ".right-arry",
+	// 		prevEl: ".left-arry",
+	// 	},
+	// });
+	// var swiper2 = new Swiper(".shop-single-slide", {
+	// 	loop: "true",
+	// 	spaceBetween: 20,
+	// 	speed: 300,
+	// 	grabCursor: true,
+	// 	navigation: {
+	// 		nextEl: ".right-arry",
+	// 		prevEl: ".left-arry",
+	// 	},
+	// 	thumbs: {
+	// 		swiper: swiper,
+	// 	},
+	// });
+	// // Shop single swiper slider area end here ***
+
+	// // Shop count js area start here ***
+	// $(".quantity").on("click", ".plus", function (e) {
+	// 	let $input = $(this).prev("input.qty");
+	// 	let val = parseInt($input.val(), 10); // Specify base 10
+	// 	$input.val(val + 1).change();
+	// });
+	// $(".quantity").on("click", ".minus", function (e) {
+	// 	let $input = $(this).next("input.qty");
+	// 	var val = parseInt($input.val(), 10); // Specify base 10
+	// 	if (val > 0) {
+	// 		$input.val(val - 1).change();
+	// 	}
+	// });
 	// Shop count js area end here ***
 
 	// Shop image zoom js area start here ***
@@ -422,59 +436,59 @@ CSS TABLE OF CONTENTS
 	// Shop image zoom js area end here ***
 
 	// Hide & show by clicks js area start here ***
-	$(document).on("click", "#openButton", function () {
-		$("#targetElement").removeClass("side_bar_hidden");
-	});
-	$(document).on("click", "#closeButton", function () {
-		$("#targetElement").addClass("side_bar_hidden");
-	});
-	// Hide & show by clicks js area end here ***
+	// $(document).on("click", "#openButton", function () {
+	// 	$("#targetElement").removeClass("side_bar_hidden");
+	// });
+	// $(document).on("click", "#closeButton", function () {
+	// 	$("#targetElement").addClass("side_bar_hidden");
+	// });
+	// // Hide & show by clicks js area end here ***
 
-	// Radio btn area start here ***
-	$(document).on("click", ".radio-btn span", function () {
-		$(this).toggleClass("radio-btn-active");
-	});
-	// Radio btn area end here ***
+	// // Radio btn area start here ***
+	// $(document).on("click", ".radio-btn span", function () {
+	// 	$(this).toggleClass("radio-btn-active");
+	// });
+	// // Radio btn area end here ***
 
-	// Mouse cursor area start here ***
-	function mousecursor() {
-		if ($("body")) {
-			const e = document.querySelector(".cursor-inner"),
-				t = document.querySelector(".cursor-outer");
-			let n,
-				i = 0,
-				o = !1;
-			(window.onmousemove = function (s) {
-				o ||
-					(t.style.transform =
-						"translate(" + s.clientX + "px, " + s.clientY + "px)"),
-					(e.style.transform =
-						"translate(" + s.clientX + "px, " + s.clientY + "px)"),
-					(n = s.clientY),
-					(i = s.clientX);
-			}),
-				$("body").on("mouseenter", "a, .cursor-pointer", function () {
-					e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
-				}),
-				$("body").on("mouseleave", "a, .cursor-pointer", function () {
-					($(this).is("a") && $(this).closest(".cursor-pointer").length) ||
-						(e.classList.remove("cursor-hover"),
-						t.classList.remove("cursor-hover"));
-				}),
-				(e.style.visibility = "visible"),
-				(t.style.visibility = "visible");
-		}
-	}
+	// // Mouse cursor area start here ***
+	// function mousecursor() {
+	// 	if ($("body")) {
+	// 		const e = document.querySelector(".cursor-inner"),
+	// 			t = document.querySelector(".cursor-outer");
+	// 		let n,
+	// 			i = 0,
+	// 			o = !1;
+	// 		(window.onmousemove = function (s) {
+	// 			o ||
+	// 				(t.style.transform =
+	// 					"translate(" + s.clientX + "px, " + s.clientY + "px)"),
+	// 				(e.style.transform =
+	// 					"translate(" + s.clientX + "px, " + s.clientY + "px)"),
+	// 				(n = s.clientY),
+	// 				(i = s.clientX);
+	// 		}),
+	// 			$("body").on("mouseenter", "a, .cursor-pointer", function () {
+	// 				e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
+	// 			}),
+	// 			$("body").on("mouseleave", "a, .cursor-pointer", function () {
+	// 				($(this).is("a") && $(this).closest(".cursor-pointer").length) ||
+	// 					(e.classList.remove("cursor-hover"),
+	// 					t.classList.remove("cursor-hover"));
+	// 			}),
+	// 			(e.style.visibility = "visible"),
+	// 			(t.style.visibility = "visible");
+	// 	}
+	// }
 
-	$(function () {
-		mousecursor();
-	});
-	// Mouse cursor area end here ***
+	// $(function () {
+	// 	mousecursor();
+	// });
+	// // Mouse cursor area end here ***
 
-	// Nice seclect area start here ***
-	$(document).ready(function () {
-		$("select").niceSelect();
-	});
+	// // Nice seclect area start here ***
+	// $(document).ready(function () {
+	// 	$("select").niceSelect();
+	// });
 	// Nice seclect area end here ***
 
 	// Back to top area start here ***
@@ -503,26 +517,26 @@ CSS TABLE OF CONTENTS
 	// 		jQuery(".scroll-up").removeClass("active-scroll");
 	// 	}
 	// });
-	jQuery(".scroll-up").on("click", function (event) {
-		event.preventDefault();
-		jQuery("html, body").animate(
-			{
-				scrollTop: 0,
-			},
-			duration
-		);
-		return false;
-	});
-	// Back to top area end here ***
+// 	jQuery(".scroll-up").on("click", function (event) {
+// 		event.preventDefault();
+// 		jQuery("html, body").animate(
+// 			{
+// 				scrollTop: 0,
+// 			},
+// 			duration
+// 		);
+// 		return false;
+// 	});
+// 	// Back to top area end here ***
 
-	// Change the root color area start here ***
-	function setThemeColor(color) {
-		const root = document.documentElement;
-		root.setAttribute("data-theme", color);
-	}
-	// Change the root color area end here ***
+// 	// Change the root color area start here ***
+// 	function setThemeColor(color) {
+// 		const root = document.documentElement;
+// 		root.setAttribute("data-theme", color);
+// 	}
+// 	// Change the root color area end here ***
 
-	// WOW Animatin area start here ***
-	// new WOW().init();
-	// WOW Animatin area start here ***
-})(jQuery);
+// 	// WOW Animatin area start here ***
+// 	// new WOW().init();
+// 	// WOW Animatin area start here ***
+// })(jQuery);
