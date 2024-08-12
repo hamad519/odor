@@ -3766,7 +3766,7 @@ input {
 }
 .testimonial__image::after {
   position: absolute;
-  content: url(../../assets/images/testimonial/testimonial-line.png);
+  content: url(../../src/assets/images/testimonial/testimonial-line.png);
   left: -80px;
   top: 5px;
 }
@@ -4325,7 +4325,7 @@ input {
 }
 .contact .content {
   color: var(--white);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/images/contact/01.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../src/assets/images/contact/01.jpg);
   padding: 40px 30px;
 }
 .contact .content h2 {

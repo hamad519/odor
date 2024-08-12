@@ -31,38 +31,6 @@ CSS TABLE OF CONTENTS
 ------------------------------------------------------------------*/
 
 (function ($) {
-	("use strict");
-
-	$(".header-bar").on("click", function (e) {
-		$(".main-menu, .header-bar").toggleClass("active");
-	});
-	$(".main-menu li a").on("click", function (e) {
-		var element = $(this).parent("li");
-		if (element.hasClass("open")) {
-			element.removeClass("open");
-			element.find("li").removeClass("open");
-			element.find("ul").slideUp(300, "swing");
-		} else {
-			element.addClass("open");
-			element.children("ul").slideDown(300, "swing");
-			element.siblings("li").children("ul").slideUp(300, "swing");
-			element.siblings("li").removeClass("open");
-			element.siblings("li").find("li").removeClass("open");
-			element.siblings("li").find("ul").slideUp(300, "swing");
-		}
-	});
-	var fixed_top = $(".header-section");
-	$(window).on("scroll", function () {
-		if ($(this).scrollTop() > 220) {
-			fixed_top.addClass("menu-fixed animated fadeInDown");
-			fixed_top.removeClass("slideInUp");
-			$("body").addClass("body-padding");
-		} else {
-			fixed_top.removeClass("menu-fixed fadeInDown");
-			fixed_top.addClass("slideInUp");
-			$("body").removeClass("body-padding");
-		}
-	});
 
 	// Preloader area start here ***
 	paceOptions = {
@@ -77,189 +45,189 @@ CSS TABLE OF CONTENTS
 	});
 	// Preloader area end here ***
 
-	// Banner five slider area end here ***
-	var sliderActive3 = ".banner-two__slider";
-	var sliderInit3 = new Swiper(sliderActive3, {
-		loop: true,
-		slidesPerView: 1,
-		effect: "fade",
-		speed: 3000,
-		autoplay: {
-			delay: 7000,
-			disableOnInteraction: false,
-		},
-		navigation: {
-			nextEl: ".banner-two__arry-next",
-			prevEl: ".banner-two__arry-prev",
-		},
-	});
-	// Here this is use for animate ***
-	function animated_swiper(selector, init) {
-		var animated = function animated() {
-			$(selector + " [data-animation]").each(function () {
-				var anim = $(this).data("animation");
-				var delay = $(this).data("delay");
-				var duration = $(this).data("duration");
-				$(this)
-					.removeClass("anim" + anim)
-					.addClass(anim + " animated")
-					.css({
-						webkitAnimationDelay: delay,
-						animationDelay: delay,
-						webkitAnimationDuration: duration,
-						animationDuration: duration,
-					})
-					.one("animationend", function () {
-						$(this).removeClass(anim + " animated");
-					});
-			});
-		};
-		animated();
-		init.on("slideChange", function () {
-			$(sliderActive3 + " [data-animation]").removeClass("animated");
-		});
-		init.on("slideChange", animated);
-	}
-	animated_swiper(sliderActive3, sliderInit3);
+	// // Banner five slider area end here ***
+	// var sliderActive3 = ".banner-two__slider";
+	// var sliderInit3 = new Swiper(sliderActive3, {
+	// 	loop: true,
+	// 	slidesPerView: 1,
+	// 	effect: "fade",
+	// 	speed: 3000,
+	// 	autoplay: {
+	// 		delay: 7000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	navigation: {
+	// 		nextEl: ".banner-two__arry-next",
+	// 		prevEl: ".banner-two__arry-prev",
+	// 	},
+	// });
+	// // Here this is use for animate ***
+	// function animated_swiper(selector, init) {
+	// 	var animated = function animated() {
+	// 		$(selector + " [data-animation]").each(function () {
+	// 			var anim = $(this).data("animation");
+	// 			var delay = $(this).data("delay");
+	// 			var duration = $(this).data("duration");
+	// 			$(this)
+	// 				.removeClass("anim" + anim)
+	// 				.addClass(anim + " animated")
+	// 				.css({
+	// 					webkitAnimationDelay: delay,
+	// 					animationDelay: delay,
+	// 					webkitAnimationDuration: duration,
+	// 					animationDuration: duration,
+	// 				})
+	// 				.one("animationend", function () {
+	// 					$(this).removeClass(anim + " animated");
+	// 				});
+	// 		});
+	// 	};
+	// 	animated();
+	// 	init.on("slideChange", function () {
+	// 		$(sliderActive3 + " [data-animation]").removeClass("animated");
+	// 	});
+	// 	init.on("slideChange", animated);
+	// }
+	// animated_swiper(sliderActive3, sliderInit3);
 	// Banner five slider area end here ***
 
 	// Product slider area start here ***
-	var swiper = new Swiper(".product__slider", {
-		spaceBetween: 24,
-		speed: 300,
-		loop: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: ".product__dot",
-			clickable: true,
-		},
-		breakpoints: {
-			575: {
-				slidesPerView: 2,
-			},
-		},
-	});
+	// var swiper = new Swiper(".product__slider", {
+	// 	spaceBetween: 24,
+	// 	speed: 300,
+	// 	loop: true,
+	// 	autoplay: {
+	// 		delay: 5000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	pagination: {
+	// 		el: ".product__dot",
+	// 		clickable: true,
+	// 	},
+	// 	breakpoints: {
+	// 		575: {
+	// 			slidesPerView: 2,
+	// 		},
+	// 	},
+	// });
 	// Product slider area end here ***
 
 	// Gallery slider area start here ***
-	var swiper = new Swiper(".gallery__slider", {
-		spaceBetween: 30,
-		speed: 300,
-		loop: true,
-		centeredSlides: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
-		breakpoints: {
-			1300: {
-				slidesPerView: 4,
-			},
-			991: {
-				slidesPerView: 3,
-			},
-			768: {
-				slidesPerView: 2,
-			},
-		},
-	});
+	// var swiper = new Swiper(".gallery__slider", {
+	// 	spaceBetween: 30,
+	// 	speed: 300,
+	// 	loop: true,
+	// 	centeredSlides: true,
+	// 	autoplay: {
+	// 		delay: 5000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	breakpoints: {
+	// 		1300: {
+	// 			slidesPerView: 4,
+	// 		},
+	// 		991: {
+	// 			slidesPerView: 3,
+	// 		},
+	// 		768: {
+	// 			slidesPerView: 2,
+	// 		},
+	// 	},
+	// });
 	// Gallery slider area end here ***
 
 	// Category slider area start here ***
-	var swiper = new Swiper(".category__slider", {
-		spaceBetween: 30,
-		speed: 500,
-		loop: true,
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-		},
-		breakpoints: {
-			1440: {
-				slidesPerView: 6,
-			},
-			1300: {
-				slidesPerView: 5,
-			},
-			991: {
-				slidesPerView: 4,
-			},
-			768: {
-				slidesPerView: 3,
-			},
-			500: {
-				slidesPerView: 2,
-			},
-		},
-	});
+	// var swiper = new Swiper(".category__slider", {
+	// 	spaceBetween: 30,
+	// 	speed: 500,
+	// 	loop: true,
+	// 	autoplay: {
+	// 		delay: 3000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	breakpoints: {
+	// 		1440: {
+	// 			slidesPerView: 6,
+	// 		},
+	// 		1300: {
+	// 			slidesPerView: 5,
+	// 		},
+	// 		991: {
+	// 			slidesPerView: 4,
+	// 		},
+	// 		768: {
+	// 			slidesPerView: 3,
+	// 		},
+	// 		500: {
+	// 			slidesPerView: 2,
+	// 		},
+	// 	},
+	// });
 	// Category slider area end here ***
 
 	// Brand slider area start here ***
-	var swiper = new Swiper(".brand__slider", {
-		spaceBetween: 30,
-		speed: 300,
-		loop: true,
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-		},
-		breakpoints: {
-			1440: {
-				slidesPerView: 6,
-			},
-			1300: {
-				slidesPerView: 5,
-			},
-			991: {
-				slidesPerView: 4,
-			},
-			768: {
-				slidesPerView: 3,
-			},
-			500: {
-				slidesPerView: 2,
-			},
-		},
-	});
+	// var swiper = new Swiper(".brand__slider", {
+	// 	spaceBetween: 30,
+	// 	speed: 300,
+	// 	loop: true,
+	// 	autoplay: {
+	// 		delay: 3000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	breakpoints: {
+	// 		1440: {
+	// 			slidesPerView: 6,
+	// 		},
+	// 		1300: {
+	// 			slidesPerView: 5,
+	// 		},
+	// 		991: {
+	// 			slidesPerView: 4,
+	// 		},
+	// 		768: {
+	// 			slidesPerView: 3,
+	// 		},
+	// 		500: {
+	// 			slidesPerView: 2,
+	// 		},
+	// 	},
+	// });
 	// Brand slider area end here ***
 
 	// Testimonial two slider area start here ***
-	var swiper = new Swiper(".testimonial__slider", {
-		loop: "true",
-		spaceBetween: 20,
-		speed: 500,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false,
-		},
-		// pagination: {
-		// 	el: ".testimonial-two__dot",
-		// 	clickable: true,
-		// },
-		navigation: {
-			nextEl: ".testimonial__arry-next",
-			prevEl: ".testimonial__arry-prev",
-		},
-	});
+	// var swiper = new Swiper(".testimonial__slider", {
+	// 	loop: "true",
+	// 	spaceBetween: 20,
+	// 	speed: 500,
+	// 	autoplay: {
+	// 		delay: 4000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	// pagination: {
+	// 	// 	el: ".testimonial-two__dot",
+	// 	// 	clickable: true,
+	// 	// },
+	// 	navigation: {
+	// 		nextEl: ".testimonial__arry-next",
+	// 		prevEl: ".testimonial__arry-prev",
+	// 	},
+	// });
 	// Testimonial two slider area end here ***
 
 	// Blog slider area start here ***
-	var swiper = new Swiper(".blog__slider", {
-		loop: "true",
-		spaceBetween: 30,
-		speed: 500,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: ".blog__dot",
-			clickable: true,
-		},
-	});
+	// var swiper = new Swiper(".blog__slider", {
+	// 	loop: "true",
+	// 	spaceBetween: 30,
+	// 	speed: 500,
+	// 	autoplay: {
+	// 		delay: 5000,
+	// 		disableOnInteraction: false,
+	// 	},
+	// 	pagination: {
+	// 		el: ".blog__dot",
+	// 		clickable: true,
+	// 	},
+	// });
 	// Blog slider area end here ***
 
 	// Get swiper slider area start here ***
@@ -510,31 +478,31 @@ CSS TABLE OF CONTENTS
 	// Nice seclect area end here ***
 
 	// Back to top area start here ***
-	var scrollPath = document.querySelector(".scroll-up path");
-	var pathLength = scrollPath.getTotalLength();
-	scrollPath.style.transition = scrollPath.style.WebkitTransition = "none";
-	scrollPath.style.strokeDasharray = pathLength + " " + pathLength;
-	scrollPath.style.strokeDashoffset = pathLength;
-	scrollPath.getBoundingClientRect();
-	scrollPath.style.transition = scrollPath.style.WebkitTransition =
-		"stroke-dashoffset 10ms linear";
-	var updatescroll = function () {
-		var scroll = $(window).scrollTop();
-		var height = $(document).height() - $(window).height();
-		var scroll = pathLength - (scroll * pathLength) / height;
-		scrollPath.style.strokeDashoffset = scroll;
-	};
-	updatescroll();
-	$(window).scroll(updatescroll);
-	var offset = 50;
-	var duration = 950;
-	jQuery(window).on("scroll", function () {
-		if (jQuery(this).scrollTop() > offset) {
-			jQuery(".scroll-up").addClass("active-scroll");
-		} else {
-			jQuery(".scroll-up").removeClass("active-scroll");
-		}
-	});
+	// var scrollPath = document.querySelector(".scroll-up path");
+	// var pathLength = scrollPath.getTotalLength();
+	// scrollPath.style.transition = scrollPath.style.WebkitTransition = "none";
+	// scrollPath.style.strokeDasharray = pathLength + " " + pathLength;
+	// scrollPath.style.strokeDashoffset = pathLength;
+	// scrollPath.getBoundingClientRect();
+	// scrollPath.style.transition = scrollPath.style.WebkitTransition =
+	// 	"stroke-dashoffset 10ms linear";
+	// var updatescroll = function () {
+	// 	var scroll = $(window).scrollTop();
+	// 	var height = $(document).height() - $(window).height();
+	// 	var scroll = pathLength - (scroll * pathLength) / height;
+	// 	scrollPath.style.strokeDashoffset = scroll;
+	// };
+	// updatescroll();
+	// $(window).scroll(updatescroll);
+	// var offset = 50;
+	// var duration = 950;
+	// jQuery(window).on("scroll", function () {
+	// 	if (jQuery(this).scrollTop() > offset) {
+	// 		jQuery(".scroll-up").addClass("active-scroll");
+	// 	} else {
+	// 		jQuery(".scroll-up").removeClass("active-scroll");
+	// 	}
+	// });
 	jQuery(".scroll-up").on("click", function (event) {
 		event.preventDefault();
 		jQuery("html, body").animate(
@@ -555,6 +523,6 @@ CSS TABLE OF CONTENTS
 	// Change the root color area end here ***
 
 	// WOW Animatin area start here ***
-	new WOW().init();
+	// new WOW().init();
 	// WOW Animatin area start here ***
 })(jQuery);
