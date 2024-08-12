@@ -1,8 +1,8 @@
 function Preloader() {
     return (
         <>
-            <div class="loading">
-                <span class="text-capitalize">L</span>
+            <div className="loading">
+                <span className="text-capitalize">L</span>
                 <span>o</span>
                 <span>a</span>
                 <span>d</span>
@@ -13,8 +13,8 @@ function Preloader() {
 
             <div id="preloader">
             </div>
-            <div class="mouse-cursor cursor-outer"></div>
-            <div class="mouse-cursor cursor-inner"></div>
+            <div className="mouse-cursor cursor-outer"></div>
+            <div className="mouse-cursor cursor-inner"></div>
         </>
     );
 }
