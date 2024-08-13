@@ -261,20 +261,20 @@ CSS TABLE OF CONTENTS
 	// Get swiper slider area end here ***
 
 	// Isotope area start here ***
-	var $grid = $(".filter__items").isotope({});
-	// click here
-	$(".filter__list").on("click", "li", function () {
-		var filterValue = $(this).attr("data-filter");
-		$grid.isotope({ filter: filterValue });
-	});
-	// change is-checked class on buttons
-	$(".filter__list").each(function (i, buttonGroup) {
-		var $buttonGroup = $(buttonGroup);
-		$buttonGroup.on("click", "li", function () {
-			$buttonGroup.find(".active").removeClass("active");
-			$(this).addClass("active");
-		});
-	});
+	// var $grid = $(".filter__items").isotope({});
+	// // click here
+	// $(".filter__list").on("click", "li", function () {
+	// 	var filterValue = $(this).attr("data-filter");
+	// 	$grid.isotope({ filter: filterValue });
+	// });
+	// // change is-checked class on buttons
+	// $(".filter__list").each(function (i, buttonGroup) {
+	// 	var $buttonGroup = $(buttonGroup);
+	// 	$buttonGroup.on("click", "li", function () {
+	// 		$buttonGroup.find(".active").removeClass("active");
+	// 		$(this).addClass("active");
+	// 	});
+	// });
 	// Isotope area end here ***
 
 	// Background image date area start here ***
@@ -368,45 +368,45 @@ CSS TABLE OF CONTENTS
 	// Countdown area end here ***
 
 	// Shop single swiper slider area start here ***
-	var swiper = new Swiper(".shop-slider-thumb", {
-		loop: true,
-		spaceBetween: 10,
-		slidesPerView: 4,
-		freeMode: true,
-		watchSlidesProgress: true,
-		navigation: {
-			nextEl: ".right-arry",
-			prevEl: ".left-arry",
-		},
-	});
-	var swiper2 = new Swiper(".shop-single-slide", {
-		loop: "true",
-		spaceBetween: 20,
-		speed: 300,
-		grabCursor: true,
-		navigation: {
-			nextEl: ".right-arry",
-			prevEl: ".left-arry",
-		},
-		thumbs: {
-			swiper: swiper,
-		},
-	});
+	// var swiper = new Swiper(".shop-slider-thumb", {
+	// 	loop: true,
+	// 	spaceBetween: 10,
+	// 	slidesPerView: 4,
+	// 	freeMode: true,
+	// 	watchSlidesProgress: true,
+	// 	navigation: {
+	// 		nextEl: ".right-arry",
+	// 		prevEl: ".left-arry",
+	// 	},
+	// });
+	// var swiper2 = new Swiper(".shop-single-slide", {
+	// 	loop: "true",
+	// 	spaceBetween: 20,
+	// 	speed: 300,
+	// 	grabCursor: true,
+	// 	navigation: {
+	// 		nextEl: ".right-arry",
+	// 		prevEl: ".left-arry",
+	// 	},
+	// 	thumbs: {
+	// 		swiper: swiper,
+	// 	},
+	// });
 	// Shop single swiper slider area end here ***
 
 	// Shop count js area start here ***
-	$(".quantity").on("click", ".plus", function (e) {
-		let $input = $(this).prev("input.qty");
-		let val = parseInt($input.val(), 10); // Specify base 10
-		$input.val(val + 1).change();
-	});
-	$(".quantity").on("click", ".minus", function (e) {
-		let $input = $(this).next("input.qty");
-		var val = parseInt($input.val(), 10); // Specify base 10
-		if (val > 0) {
-			$input.val(val - 1).change();
-		}
-	});
+	// $(".quantity").on("click", ".plus", function (e) {
+	// 	let $input = $(this).prev("input.qty");
+	// 	let val = parseInt($input.val(), 10); // Specify base 10
+	// 	$input.val(val + 1).change();
+	// });
+	// $(".quantity").on("click", ".minus", function (e) {
+	// 	let $input = $(this).next("input.qty");
+	// 	var val = parseInt($input.val(), 10); // Specify base 10
+	// 	if (val > 0) {
+	// 		$input.val(val - 1).change();
+	// 	}
+	// });
 	// Shop count js area end here ***
 
 	// Shop image zoom js area start here ***
@@ -492,41 +492,41 @@ CSS TABLE OF CONTENTS
 	// Nice seclect area end here ***
 
 	// Back to top area start here ***
-	var scrollPath = document.querySelector(".scroll-up path");
-	var pathLength = scrollPath.getTotalLength();
-	scrollPath.style.transition = scrollPath.style.WebkitTransition = "none";
-	scrollPath.style.strokeDasharray = pathLength + " " + pathLength;
-	scrollPath.style.strokeDashoffset = pathLength;
-	scrollPath.getBoundingClientRect();
-	scrollPath.style.transition = scrollPath.style.WebkitTransition =
-		"stroke-dashoffset 10ms linear";
-	var updatescroll = function () {
-		var scroll = $(window).scrollTop();
-		var height = $(document).height() - $(window).height();
-		var scroll = pathLength - (scroll * pathLength) / height;
-		scrollPath.style.strokeDashoffset = scroll;
-	};
-	updatescroll();
-	$(window).scroll(updatescroll);
-	var offset = 50;
-	var duration = 950;
-	jQuery(window).on("scroll", function () {
-		if (jQuery(this).scrollTop() > offset) {
-			jQuery(".scroll-up").addClass("active-scroll");
-		} else {
-			jQuery(".scroll-up").removeClass("active-scroll");
-		}
-	});
-	jQuery(".scroll-up").on("click", function (event) {
-		event.preventDefault();
-		jQuery("html, body").animate(
-			{
-				scrollTop: 0,
-			},
-			duration
-		);
-		return false;
-	});
+	// var scrollPath = document.querySelector(".scroll-up path");
+	// var pathLength = scrollPath.getTotalLength();
+	// scrollPath.style.transition = scrollPath.style.WebkitTransition = "none";
+	// scrollPath.style.strokeDasharray = pathLength + " " + pathLength;
+	// scrollPath.style.strokeDashoffset = pathLength;
+	// scrollPath.getBoundingClientRect();
+	// scrollPath.style.transition = scrollPath.style.WebkitTransition =
+	// 	"stroke-dashoffset 10ms linear";
+	// var updatescroll = function () {
+	// 	var scroll = $(window).scrollTop();
+	// 	var height = $(document).height() - $(window).height();
+	// 	var scroll = pathLength - (scroll * pathLength) / height;
+	// 	scrollPath.style.strokeDashoffset = scroll;
+	// };
+	// updatescroll();
+	// $(window).scroll(updatescroll);
+	// var offset = 50;
+	// var duration = 950;
+	// jQuery(window).on("scroll", function () {
+	// 	if (jQuery(this).scrollTop() > offset) {
+	// 		jQuery(".scroll-up").addClass("active-scroll");
+	// 	} else {
+	// 		jQuery(".scroll-up").removeClass("active-scroll");
+	// 	}
+	// });
+	// jQuery(".scroll-up").on("click", function (event) {
+	// 	event.preventDefault();
+	// 	jQuery("html, body").animate(
+	// 		{
+	// 			scrollTop: 0,
+	// 		},
+	// 		duration
+	// 	);
+	// 	return false;
+	// });
 	// Back to top area end here ***
 
 	// Change the root color area start here ***

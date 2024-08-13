@@ -1,22 +1,49 @@
-import { useEffect } from "react"
-import ProductDescriptionReviews from "./product_descriotion_reviews"
+import { useEffect, useState } from "react";
 import Swiper from "swiper";
+import ProductDescriptionReviews from "./product_descriotion_reviews";
+
 function ProductDetailArea() {
-    useEffect(()=>{
-        var swiper = new Swiper(".get__slider", {
-            loop: "true",
+    const [quantity, setQuantity] = useState(0);
+
+    useEffect(() => {
+        const swiperThumbs = new Swiper(".shop-slider-thumb", {
+            loop: true,
             spaceBetween: 10,
-            speed: 300,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
             navigation: {
-                nextEl: ".get-now__arry-right",
-                prevEl: ".get-now__arry-left",
+                nextEl: ".right-arry",
+                prevEl: ".left-arry",
             },
         });
-    }, [])
+
+        const swiperMain = new Swiper(".shop-single-slide", {
+            loop: true,
+            spaceBetween: 20,
+            speed: 300,
+            grabCursor: true,
+            navigation: {
+                nextEl: ".right-arry",
+                prevEl: ".left-arry",
+            },
+            thumbs: {
+                swiper: swiperThumbs,
+            },
+        });
+    }, []);
+
+    const handleQuantityChange = (type) => {
+        setQuantity((prevQuantity) => {
+            if (type === "increment") {
+                return prevQuantity + 1;
+            } else if (type === "decrement" && prevQuantity > 0) {
+                return prevQuantity - 1;
+            }
+            return prevQuantity;
+        });
+    };
+
     return (
         <>
             <section className="shop-single pt-130 pb-130">
@@ -31,7 +58,7 @@ function ProductDetailArea() {
                                                 <img src="src/assets/images/shop/01.jpg" alt="image" />
                                             </div>
                                             <div className="swiper-slide">
-                                                <img src="src/assets/images/shop/02.jpg=" alt="image" />
+                                                <img src="src/assets/images/shop/02.jpg" alt="image" />
                                             </div>
                                             <div className="swiper-slide">
                                                 <img src="src/assets/images/shop/03.jpg" alt="image" />
@@ -72,12 +99,7 @@ function ProductDetailArea() {
                                     <h2 className="pb-3">$440.00</h2>
                                     <h4 className="pb-2 primary-color">Product Description</h4>
                                     <p className="text-justify mb-10">Rapidiusly transform corporate expertise whereas
-                                        enterprise-wide
-                                        web
-                                        services.
-                                        Progressively whiteboard multifunctional
-                                        networks for pandemic total linkage a Synergistically recaptiualize client and based
-                                        methods of empowerment with
+                                        enterprise-wide web services. Progressively whiteboard multifunctional networks for pandemic total linkage a Synergistically recaptiualize client and based methods of empowerment with
                                         sustainable bandwidth.</p>
                                     <p className="text-justify">Progressively whiteboard multifunctional
                                         networks for pandemic total linkage a Synergistically recaptiualize client and based
@@ -127,9 +149,25 @@ function ProductDetailArea() {
                                             <div className="cart-wrp py-4">
                                                 <div className="cart-quantity">
                                                     <form id='myform' method='POST' className='quantity' action='#'>
-                                                        <input type='button' value='-' className='qtyminus minus' />
-                                                        <input type='text' name='quantity' value='0' className='qty' />
-                                                        <input type='button' value='+' className='qtyplus plus' />
+                                                        <input
+                                                            type='button'
+                                                            value='-'
+                                                            className='qtyminus minus'
+                                                            onClick={() => handleQuantityChange("decrement")}
+                                                        />
+                                                        <input
+                                                            type='text'
+                                                            name='quantity'
+                                                            value={quantity}
+                                                            className='qty'
+                                                            readOnly
+                                                        />
+                                                        <input
+                                                            type='button'
+                                                            value='+'
+                                                            className='qtyplus plus'
+                                                            onClick={() => handleQuantityChange("increment")}
+                                                        />
                                                     </form>
                                                 </div>
                                                 <div className="discount">
@@ -138,21 +176,18 @@ function ProductDetailArea() {
                                             </div>
                                             <a href="#0" className="d-block text-center btn-two mt-40"><span><i
                                                 className="fa-solid fa-basket-shopping pe-2"></i>
-                                                add
-                                                to
-                                                cart</span></a>
+                                                add to cart</span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <ProductDescriptionReviews/>
+                    <ProductDescriptionReviews />
                 </div>
-                
             </section>
-            
         </>
-    )
+    );
 }
-export default ProductDetailArea
+
+export default ProductDetailArea;

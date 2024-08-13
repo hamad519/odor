@@ -14,7 +14,7 @@ import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
-import About from "./pages/about";
+import About from "./pages/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/registration",
+    path: "/register",
     element: (
       <Layout>
         <Registration/>

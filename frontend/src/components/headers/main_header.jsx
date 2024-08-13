@@ -33,27 +33,27 @@ function MainHeader() {
                                     <li className="subtwohober">
                                     </li>
                                     <li className="subtwohober">
-                                        <Link to="cart">
+                                        <Link to="/cart">
                                             Cart Page
                                         </Link>
                                     </li>
                                     <li className="subtwohober">
-                                        <Link to="checkout">
+                                        <Link to="/checkout">
                                             Checkout Page
                                         </Link>
                                     </li>
                                     <li className="subtwohober">
-                                        <Link to="register">
+                                        <Link to="/register">
                                             Register
                                         </Link>
                                     </li>
                                     <li className="subtwohober">
-                                        <Link to="login">
+                                        <Link to="/login">
                                             Login
                                         </Link>
                                     </li>
                                     <li className="subtwohober">
-                                        <Link to="error">
+                                        <Link to="/error">
                                             404 Error
                                         </Link>
                                     </li>
